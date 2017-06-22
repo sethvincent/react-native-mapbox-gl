@@ -646,12 +646,15 @@ public class ReactNativeMapboxGLView extends RelativeLayout implements
     WritableMap serializeMarker(Marker marker) {
         WritableMap event = Arguments.createMap();
         WritableMap src = Arguments.createMap();
+        PointF screenCoords = _map.getProjection().toScreenLocation(marker.getPosition());
 
         src.putString("id", _annotationIdsToName.get(marker.getId()));
         src.putDouble("longitude", marker.getPosition().getLongitude());
         src.putDouble("latitude", marker.getPosition().getLatitude());
         src.putString("title", marker.getTitle());
         src.putString("subtitle", marker.getSnippet());
+        src.putDouble("screenCoordX", screenCoords.x);
+        src.putDouble("screenCoordY", screenCoords.y);
 
         event.putMap("src", src);
         return event;
