@@ -24,6 +24,7 @@ import com.mapbox.mapboxsdk.geometry.LatLng;
 import com.mapbox.mapboxsdk.geometry.LatLngBounds;
 
 import java.util.Map;
+import java.util.List;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
